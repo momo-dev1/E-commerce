@@ -10,7 +10,7 @@ import {
     IconButton,
     useColorMode,
     useDisclosure,
-    useColorModeValue,
+    useColorModeValue as mode,
 }
     from "@chakra-ui/react"
 import { Link as ReactLink } from "react-router-dom"
@@ -27,7 +27,7 @@ const NavLink = ({ path, children }) => (
         py={2}
         to={path}
         rounded="md"
-        _hover={{ bg: useColorModeValue("gray.200", "gray.700"), textDecoration: "none" }} >
+        _hover={{ bg: mode("gray.200", "gray.700"), textDecoration: "none" }} >
         {children}
     </Link>
 )
@@ -36,7 +36,7 @@ const NavBar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
     return (
         <Box
-            bg={useColorModeValue("gray.100", "gray.900")}
+            bg={mode("gray.100", "gray.900")}
             px={4}
         >
             <Flex h={16} alignItems="center" justifyContent="space-between" >
