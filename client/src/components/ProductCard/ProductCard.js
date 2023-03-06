@@ -1,5 +1,4 @@
 import {
-    AspectRatio,
     Box,
     HStack,
     Icon,
@@ -10,6 +9,7 @@ import {
     useColorModeValue as mode,
 } from '@chakra-ui/react'
 
+import { Link as ReactLink } from 'react-router-dom'
 import { FiEye, FiHeart } from 'react-icons/fi'
 import { Rating } from './Rating'
 import { PriceTag } from './PriceTag'
@@ -19,7 +19,7 @@ export const ProductCard = (props) => {
     const { product } = props
     return (
         <Stack spacing="4" bg={mode("white", "gray.700")} shadow="2xl" p={3} borderRadius="md">
-            <Box position="relative" className="group" overflow="hidden"  >
+            <Box as={ReactLink} to={`/products/${ product._id }`} position="relative" className="group" overflow="hidden"  >
                 <Image
                     w="100%"
                     h="250px"
@@ -74,7 +74,7 @@ export const ProductCard = (props) => {
                 <HStack>
                     <Rating defaultValue={product.rating} size="sm" />
                     <Text fontWeight="medium" fontSize="sm" color={mode('gray.500', 'gray.200')}>
-                        ({product.numReviews})
+                        {`${ product.numReviews } ${ product.numReviews === 1 ? "Review" : "Reviews" }`}
                     </Text>
                 </HStack>
             </Stack>
