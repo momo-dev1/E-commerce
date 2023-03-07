@@ -6,7 +6,6 @@ const express = require("express")
 const app = express();
 
 const productsRouter = require('./routes/products');
-const categoriesRouter = require('./routes/products');
 const connectDB = require('./db/connect');
 
 
@@ -14,10 +13,6 @@ app.use(express.json());
 
 // routes
 app.use('/api/v1/products', productsRouter)
-app.use('/api/v1/categories', categoriesRouter)
-
-
-
 
 const port = process.env.DB_CONNECT || 5000
 
